@@ -4,7 +4,7 @@ import Profile from "@/components/Profile";
 
 export default function Home() {
   return (
-    <main className="relative flex min-h-screen flex-col items-center">
+    <main className="relative flex flex-col items-center">
       {/* <video
         className="bg-video__content position: fixed -z-10"
         autoPlay
@@ -17,7 +17,7 @@ export default function Home() {
           type="video/mp4"
         />
       </video> */}
-      <Profile />
+      {/* <Profile /> */}
     </main>
   );
 }

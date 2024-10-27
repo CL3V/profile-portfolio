@@ -2,15 +2,14 @@
 
 import React from "react";
 import Image from "next/image";
-import profile from "../../../public/profile.png";
-import { Button } from "../ui/button";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
-
 import { GitHubLogoIcon, LinkedInLogoIcon } from "@radix-ui/react-icons";
+
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import ProfileCarousel from "../Carousel";
-import HyperStacksLogo from "../../../public/hyperstacks.png";
-import PSAX from "../../../public/psax.png";
 import LanguagesAndTools from "../LanguagesAndTools";
+import HyperStacksLogo from "../../../public/hyperstacks.png";
+import profile from "../../../public/profile.png";
+import PSAX from "../../../public/psax.png";
 
 export default function Profile() {
   const [showMore, setShowMore] = React.useState(false);
@@ -23,7 +22,7 @@ export default function Profile() {
       <div className="flex w-full items-center justify-between pb-10">
         <div className="flex-row w-3/5">
           <h1 className="scroll-m-20 text-4xl tracking-tight lg:text-4xl pb-5">
-            Hey! This is
+            Hello! This is
           </h1>
           <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl pb-5">
             Clevane Villareal
@@ -78,7 +77,7 @@ export default function Profile() {
           </h1>
         </div>
       </div>
-      <div className="p-3 items-center flex flex-row pt-10 justify-between">
+      <div className="p-3 items-start flex flex-row pt-10 justify-between">
         <div className="w-3/4 gap-5 flex flex-col">
           <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-3xl underline underline-offset-[12px]">
             About me
@@ -201,7 +200,7 @@ export default function Profile() {
           <Card>
             <CardHeader className="items-center">
               <Image src={PSAX} alt="Logo" width={300} height={300} />
-              <h1 className="scroll-m-20 tracking-tight text-m text-justify font-extrabold">
+              <h1 className="scroll-m-20 tracking-tight text-m text-justify font-extrabold pt-3">
                 Intership at Philippines Statistic Office Region X
               </h1>
             </CardHeader>
