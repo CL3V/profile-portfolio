@@ -26,26 +26,26 @@ export default function TopBar() {
               />
             </div>
             {['File', 'Edit', 'Selection', 'View', 'Go', 'Run', 'Terminal', 'Help'].map((text) => (
-              <Tooltip title={text} key={text}>
-                <Text className="p-2 rounded-md hover:text-green-300 hover:bg-slate-800 cursor-pointer">{text}</Text>
-              </Tooltip>
+              <Text className="p-2 rounded-md hover:text-green-300 hover:bg-slate-950 cursor-pointer">{text}</Text>
             ))}
           </div>
           <div className="flex gap-3 items-center text-center">
-            <Tooltip title="Back">
-              <ArrowLeft className="p-2 rounded-md size-10 hover:text-green-300 hover:bg-slate-800 cursor-pointer" />
+            <Tooltip title="Go Back (Alt+Left Arrow)" classes={{ tooltip: 'bg-inherit border-2 border-opacity-20' }}>
+              <ArrowLeft className="p-2 rounded-md size-10 hover:text-green-300 hover:bg-slate-950 cursor-pointer" />
             </Tooltip>
-            <Tooltip title="Forward">
-              <ArrowRight className="p-2 rounded-md size-10 hover:text-green-300 hover:bg-slate-800 cursor-pointer" />
+            <Tooltip title="Go Forward (Alt+Right Arrow)" classes={{ tooltip: 'bg-inherit border-2 border-opacity-20' }}>
+              <ArrowRight className="p-2 rounded-md size-10 hover:text-green-300 hover:bg-slate-950 cursor-pointer" />
             </Tooltip>
             <div className="relative flex items-center justify-center">
               <div className="relative">
                 <div className="relative flex items-center">
-                  <input
-                    type="text"
-                    placeholder="🔎 clev-dev-portfolio"
-                    className="px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-center w-[600px] z-50"
-                  />
+                  <Tooltip title="Seach clev-dev-portfolio-index.tsx - clev-dev-portfolio - Visual Studio Code" classes={{ tooltip: 'bg-inherit border-2 border-opacity-20' }}>
+                    <input
+                      type="text"
+                      placeholder="🔎 clev-dev-portfolio"
+                      className="px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-center w-[600px] z-50"
+                    />
+                  </Tooltip>
                 </div>
               </div>
             </div>
@@ -53,23 +53,23 @@ export default function TopBar() {
           <div className="flex gap-1 items-center justify-center text-center">
             <div className="flex">
               <Tooltip title="Panel Left">
-                <PanelLeft strokeWidth={1.5} className="p-2 rounded-md size-10 hover:text-green-300 hover:bg-slate-800 cursor-pointer" />
+                <PanelLeft strokeWidth={1.5} className="p-2 rounded-md size-10 hover:text-green-300 hover:bg-slate-950 cursor-pointer" />
               </Tooltip>
               <Tooltip title="Panel Bottom">
-                <PanelBottom strokeWidth={1.5} className="p-2 rounded-md size-10 hover:text-green-300 hover:bg-slate-800 cursor-pointer" />
+                <PanelBottom strokeWidth={1.5} className="p-2 rounded-md size-10 hover:text-green-300 hover:bg-slate-950 cursor-pointer" />
               </Tooltip>
               <Tooltip title="Panel Right">
-                <PanelRight strokeWidth={1.5} className="p-2 rounded-md size-10 hover:text-green-300 hover:bg-slate-800 cursor-pointer" />
+                <PanelRight strokeWidth={1.5} className="p-2 rounded-md size-10 hover:text-green-300 hover:bg-slate-950 cursor-pointer" />
               </Tooltip>
               <Tooltip title="Layout Panel Left">
-                <LayoutPanelLeft strokeWidth={1.5} className="p-2 rounded-md size-10 hover:text-green-300 hover:bg-slate-800 cursor-pointer" />
+                <LayoutPanelLeft strokeWidth={1.5} className="p-2 rounded-md size-10 hover:text-green-300 hover:bg-slate-950 cursor-pointer" />
               </Tooltip>
             </div>
             <Tooltip title="Minimize">
-              <Minus className="p-2 rounded-md size-10 hover:text-green-300 hover:bg-slate-800 cursor-pointer" />
+              <Minus className="p-2 rounded-md size-10 hover:text-green-300 hover:bg-slate-950 cursor-pointer" />
             </Tooltip>
             <Tooltip title="Files">
-              <Files className="p-2 rounded-md size-10 hover:text-green-300 hover:bg-slate-800 cursor-pointer" />
+              <Files className="p-2 rounded-md size-10 hover:text-green-300 hover:bg-slate-950 cursor-pointer" />
             </Tooltip>
             <Tooltip title="Close">
               <X

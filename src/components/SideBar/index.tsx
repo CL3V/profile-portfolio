@@ -8,6 +8,9 @@ import Tab from '@mui/material/Tab';
 import { Text } from '@radix-ui/themes';
 import Tooltip from '@mui/material/Tooltip';
 import { Accordion, AccordionSummary, AccordionDetails } from '@mui/material';
+import { useTheme } from "next-themes";
+import { DropdownMenuItem } from '@radix-ui/react-dropdown-menu';
+
 
 interface SideBarProps {
     children?: React.ReactNode;
@@ -50,11 +53,19 @@ function TabPanel(props: TabPanelProps) {
 const SideBar: React.FC<SideBarProps> = ({ children }) => {
     const [value, setValue] = React.useState(0);
     const [open, setOpen] = React.useState<boolean>(false);
-    const [hide, setHide] = React.useState<boolean>(false);
+    const [hideExplorer, setHideExplorer] = React.useState<boolean>(true);
+    const { setTheme } = useTheme();
 
     const handleChange = (event: React.SyntheticEvent, newValue: number) => {
         setValue(newValue);
     };
+
+    const handleShowContent = () => {
+        setHideExplorer(!hideExplorer);
+        setOpen(!open);
+    };
+
+
     return (
         <div className="flex selection:select-none bg-inherit">
             <div className='flex flex-col justify-between h-screen border-r-2 border-gray-300 border-opacity-20'>
@@ -69,11 +80,12 @@ const SideBar: React.FC<SideBarProps> = ({ children }) => {
                         sx: {
                             left: 0,
                             width: 3,
+                            display: hideExplorer ? 'flex' : 'none',
                         },
                     }}
                 >
                     <Tab
-                        onClick={() => setHide(!hide)}
+                        onClick={() => handleShowContent()}
                         label={<Tooltip placement='right' title="Projects"><Files size={30} strokeWidth={1} color={value === 0 ? 'white' : 'gray'} /></Tooltip>}
                         {...a11yProps(0)}
                     />
@@ -106,7 +118,7 @@ const SideBar: React.FC<SideBarProps> = ({ children }) => {
                     />
                 </div>
             </div>
-            {hide && (
+            {hideExplorer && (
                 <TabPanel value={value} index={0}>
                     <div className='flex mt-16'>
                         <div className='flex flex-col w-full'>
@@ -115,8 +127,8 @@ const SideBar: React.FC<SideBarProps> = ({ children }) => {
                                 <Ellipsis />
                             </div>
                             <div className='select-none'>
-                                <div onClick={() => console.log("test")} className='w-full font-bold text-gray-600 border-b-2 p-2'>
-                                    <div className='flex items-center justify-between ' onClick={() => setOpen(!open)}>
+                                <div className='w-full font-bold text-gray-600 border-b-2 p-2'>
+                                    <div className='flex items-center justify-between'>
                                         <div className='flex'>
                                             {open ? <ChevronDown className='text-cyan-50' /> : <ChevronRight className='text-cyan-50' />} <Text className=''>GameHive</Text>
                                         </div>
@@ -127,6 +139,7 @@ const SideBar: React.FC<SideBarProps> = ({ children }) => {
                                                 <RotateCcw className='size-5' />
                                                 <CopyMinus className='size-5' />
                                             </div>
+
                                         )}
                                     </div>
                                     {open && (
