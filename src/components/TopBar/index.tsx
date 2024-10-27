@@ -51,7 +51,7 @@ export default function TopBar() {
             </div>
           </div>
           <div className="flex gap-1 items-center justify-center text-center">
-            <div className="flex gap-4">
+            <div className="flex">
               <Tooltip title="Panel Left">
                 <PanelLeft strokeWidth={1.5} className="p-2 rounded-md size-10 hover:text-green-300 hover:bg-slate-800 cursor-pointer" />
               </Tooltip>
