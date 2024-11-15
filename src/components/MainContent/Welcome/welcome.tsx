@@ -4,7 +4,7 @@ import { ArrowLeft, ArrowRight, Files, LayoutPanelLeft, Minus, PanelBottom, Pane
 
 const Welcome: React.FC = () => {
     return (
-        <div className='pl-16'>
+        <div className='pl-16 w-screen select-none'>
             <Text fontSize={50}>
                 Clevane Villareal
             </Text>
@@ -17,25 +17,25 @@ const Welcome: React.FC = () => {
                 </Text>
                 <div className='flex items-center gap-2'>
                     <LayoutPanelLeft />
-                    <Text fontSize={22} className='text-green-300'>
+                    <Text fontSize={20} className='text-green-300'>
                         New File
                     </Text>
                 </div>
                 <div className='flex items-center gap-2'>
                     <LayoutPanelLeft />
-                    <Text fontSize={22} className='text-green-300'>
+                    <Text fontSize={20} className='text-green-300'>
                         Open File
                     </Text>
                 </div>
                 <div className='flex items-center gap-2'>
                     <LayoutPanelLeft />
-                    <Text fontSize={22} className='text-green-300'>
+                    <Text fontSize={20} className='text-green-300'>
                         Open Folder
                     </Text>
                 </div>
                 <div className='flex items-center gap-2'>
                     <LayoutPanelLeft />
-                    <Text fontSize={22} className='text-green-300'>
+                    <Text fontSize={20} className='text-green-300'>
                         Clone This Repository
                     </Text>
                 </div>

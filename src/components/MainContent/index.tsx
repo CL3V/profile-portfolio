@@ -7,6 +7,7 @@ import Box from '@mui/material/Box';
 import Text from '@mui/material/Typography';
 
 import Welcome from './Welcome/welcome';
+import Terminal from '../Terminal';
 
 interface TabPanelProps {
     children?: React.ReactNode;
@@ -62,6 +63,7 @@ export default function BasicTabs() {
             <MainContent value={value} index={2}>
                 Item Three
             </MainContent>
+            <Terminal />
         </Box>
     );
 }
