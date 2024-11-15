@@ -1,7 +1,6 @@
 "use client";
 
 import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Tooltip from '@mui/material/Tooltip';
@@ -9,8 +8,7 @@ import { ArrowLeft, ArrowRight, Files, LayoutPanelLeft, Minus, PanelBottom, Pane
 import { Text } from '@radix-ui/themes';
 import { useTheme } from "next-themes";
 
-export default function TopBar() {
-  const { theme, setTheme } = useTheme();
+const TopBar: React.FC = React.memo(() => {
   const [mounted, setMounted] = React.useState(false);
 
   React.useEffect(() => {
@@ -18,10 +16,11 @@ export default function TopBar() {
   }, []);
 
   if (!mounted) return null;
+  const { theme, setTheme } = useTheme();
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="fixed" className='shadow-none border-b-2 border-opacity-20 select-none bg-[#020916] z-50 overflow-hidden'>
+    <Box>
+      <div className='shadow-none border-b-2 border-opacity-20 select-none bg-inherit '>
         <Toolbar className='flex justify-between'>
           <div className="flex gap-3 items-center">
             <div className="flex items-center">
@@ -103,7 +102,10 @@ export default function TopBar() {
             </Tooltip>
           </div>
         </Toolbar>
-      </AppBar>
+      </div>
     </Box>
   );
 }
+);
+
+export default TopBar;

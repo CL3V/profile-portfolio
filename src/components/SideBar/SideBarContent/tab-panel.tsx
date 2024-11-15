@@ -1,5 +1,4 @@
 import Box from '@mui/material/Box';
-import { Text } from '@radix-ui/themes';
 
 export function TabPanel(props: TabPanelProps) {
     const { children, value, index, ...other } = props;

@@ -15,9 +15,9 @@ const SideBar: React.FC<SideBarProps> = React.memo(({ children }) => {
 
     return (
         <div className="flex selection:select-none bg-inherit">
-            <div className='flex flex-col justify-between h-screen border-r-2 border-gray-300 border-opacity-20'>
+            <div className='flex flex-col justify-between border-r-2 border-gray-300 border-opacity-20'>
                 <Tabs
-                    className='mt-16'
+                    // className='mt-16'
                     orientation="vertical"
                     variant="scrollable"
                     value={value}
@@ -67,13 +67,15 @@ const SideBar: React.FC<SideBarProps> = React.memo(({ children }) => {
                 { content: "Item Five", index: 4 },
                 { content: "Item Six", index: 5 },
             ].map(({ content, index }) => (
-                <div className='flex mt-16'>
+                <div className='flex'>
                     <TabPanel key={index} value={value} index={index}>
                         {content}
                     </TabPanel>
-                    {children}
                 </div>
             ))}
+            <div className='flex'>
+                {children}
+            </div>
         </div>
     );
 });

@@ -8,7 +8,7 @@ import { SidebarHook } from './hooks/sidebar.hook';
 export const ExplorerContent = () => {
     const { open } = SidebarHook();
     return (
-        <div className='flex'>
+        <div className='flex overflow-hidden'>
             <div className='flex flex-col w-full'>
                 <div className='pl-5 pt-5 pr-3 pb-3 flex flex-row justify-between items-center'>
                     <Text className=''>Explorer</Text>
