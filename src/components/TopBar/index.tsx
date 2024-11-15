@@ -5,12 +5,19 @@ import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Tooltip from '@mui/material/Tooltip';
-import { ArrowLeft, ArrowRight, Files, LayoutPanelLeft, Minus, PanelBottom, PanelLeft, PanelRight, X } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Files, LayoutPanelLeft, Minus, PanelBottom, PanelLeft, PanelRight, Sun, Moon, X } from 'lucide-react';
 import { Text } from '@radix-ui/themes';
 import { useTheme } from "next-themes";
 
 export default function TopBar() {
-  const { setTheme } = useTheme();
+  const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = React.useState(false);
+
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -18,7 +25,6 @@ export default function TopBar() {
         <Toolbar className='flex justify-between'>
           <div className="flex gap-3 items-center">
             <div className="flex items-center">
-              {/* <Logo /> */}
               <img
                 src="https://seeklogo.com/images/V/visual-studio-logo-14F95CF819-seeklogo.com.png"
                 className="h-8"
@@ -26,7 +32,7 @@ export default function TopBar() {
               />
             </div>
             {['File', 'Edit', 'Selection', 'View', 'Go', 'Run', 'Terminal', 'Help'].map((text) => (
-              <Text className="p-2 rounded-md hover:text-green-300 hover:bg-slate-950 cursor-pointer">{text}</Text>
+              <Text key={text} className="p-2 rounded-md hover:text-green-300 hover:bg-slate-950 cursor-pointer">{text}</Text>
             ))}
           </div>
           <div className="flex gap-3 items-center text-center">
@@ -39,7 +45,7 @@ export default function TopBar() {
             <div className="relative flex items-center justify-center">
               <div className="relative">
                 <div className="relative flex items-center">
-                  <Tooltip title="Seach clev-dev-portfolio-index.tsx - clev-dev-portfolio - Visual Studio Code" classes={{ tooltip: 'bg-inherit border-2 border-opacity-20' }}>
+                  <Tooltip title="Search clev-dev-portfolio-index.tsx - clev-dev-portfolio - Visual Studio Code" classes={{ tooltip: 'bg-inherit border-2 border-opacity-20' }}>
                     <input
                       type="text"
                       placeholder="🔎 clev-dev-portfolio"
@@ -70,6 +76,19 @@ export default function TopBar() {
             </Tooltip>
             <Tooltip title="Files">
               <Files className="p-2 rounded-md size-10 hover:text-green-300 hover:bg-slate-950 cursor-pointer" />
+            </Tooltip>
+            <Tooltip title="Toggle Theme">
+              {theme === 'dark' ? (
+                <Sun
+                  className="p-2 rounded-md size-10 hover:text-yellow-300 hover:bg-slate-950 cursor-pointer"
+                  onClick={() => setTheme('light')}
+                />
+              ) : (
+                <Moon
+                  className="p-2 rounded-md size-10 hover:text-blue-300 hover:bg-slate-950 cursor-pointer"
+                  onClick={() => setTheme('dark')}
+                />
+              )}
             </Tooltip>
             <Tooltip title="Close">
               <X

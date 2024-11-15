@@ -16,7 +16,7 @@ export default function Home() {
           src="https://cdn.akamai.steamstatic.com/steamcommunity/public/images/items/1098340/ed0f1be27eab79d06a54fe9657d49a5fee0e12c8.mp4"
           type="video/mp4"
         />
-      </video> */}
+      </video> 
       {/* <Profile /> */}
     </main>
   );
